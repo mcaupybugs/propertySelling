@@ -1,40 +1,26 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Navbar, Nav } from 'react-bootstrap';
+import GoogleAuth from './GoogleAuth';
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-    title: {
-        flexGrow: 1,
-    },
-}));
+class Header extends React.Component {
+    render() {
+        return (
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+                <Navbar.Brand style={{ fontSize: 20 }} href="/">Home Seva</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link style={{ fontSize: 20 }} className="button" href="#features">Buyer</Nav.Link>
+                        <Nav.Link style={{ fontSize: 20 }} className="button" href="#pricing">Seller</Nav.Link>
+                    </Nav>
+                    <Nav>
 
-export default function ButtonAppBar() {
-    const classes = useStyles();
-
-    return (
-        <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        News
-          </Typography>
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </AppBar>
-        </div>
-    );
+                        <GoogleAuth />
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        )
+    }
 }
+
+export default Header;
