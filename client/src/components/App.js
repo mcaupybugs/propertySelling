@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import history from '../history'
 import HomePage from '../pages/HomePage';
 import BuyerPage from '../pages/BuyerPage';
+import SellerPage from '../pages/SellerPage';
 
 
 class App extends React.Component {
@@ -16,6 +17,7 @@ class App extends React.Component {
                         <Switch>
                             <Route path="/" exact component={HomePage} />
                             <Route path="/buyer" exact component={BuyerPage} />
+                            <Route path="/seller" exact component={SellerPage} />
                         </Switch>
                     </div>
                 </Router>

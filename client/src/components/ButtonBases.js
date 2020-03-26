@@ -8,11 +8,13 @@ const images = [
         url: require('../assets/images/buyer.jpg'),
         title: 'Buyers',
         width: '50%',
+        link: '/buyer'
     },
     {
         url: require('../assets/images/seller.png'),
         title: 'Seller',
         width: '50%',
+        link: '/seller'
     },
 ];
 
@@ -111,6 +113,7 @@ export default function ButtonBases() {
                     style={{
                         width: image.width,
                     }}
+                    href={image.link}
                 >
                     <span
                         className={classes.imageSrc}
@@ -131,7 +134,9 @@ export default function ButtonBases() {
                         </Typography>
                     </span>
                 </ButtonBase>
-            ))}
-        </div>
+
+            ))
+            }
+        </div >
     );
 }
