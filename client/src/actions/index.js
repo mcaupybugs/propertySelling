@@ -16,7 +16,7 @@ export const signOut = () => {
 
 export const addProperty = (formValues) => async (dispatch, getState) => {
     const { userId } = getState().auth;
-
     const response = await property.post('/addProperty', { ...formValues, userId });
     dispatch({ type: 'ADD_PROPERTY', payload: response.data });
+    history.push('/');
 }
