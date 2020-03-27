@@ -14,7 +14,7 @@ class PropertyEdit extends React.Component {
     }
 
     render() {
-        console.log(this.props.property);
+        console.log(this.props);
         if (!this.props.property) {
             return <div>...Loading</div>
         }
@@ -29,7 +29,7 @@ class PropertyEdit extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return { property: state.property };
+    return { property: state.property.undefined };
 }
 
 export default connect(mapStateToProps, { fetchProperty, editProperty })(PropertyEdit);

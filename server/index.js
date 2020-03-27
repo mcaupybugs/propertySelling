@@ -43,11 +43,8 @@ app.get('/property/:id', (req, res) => {
             console.log(err);
             res.status(404).send();
         } else {
-            var to_send = {
-                property: data[0]
-            }
-            console.log(to_send);
-            res.status(200).send(to_send);
+            console.log(data[0]);
+            res.status(200).send(data[0]);
         }
     })
 })
