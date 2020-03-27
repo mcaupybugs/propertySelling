@@ -35,6 +35,7 @@ export const fetchProperty = (id) => async dispatch => {
 }
 
 export const editProperty = (id, formValues) => async dispatch => {
+    console.log(formValues);
     const response = await property.patch(`/property/${id}`, formValues);
 
     dispatch({ type: 'EDIT_PROPERTY', payload: response.data });

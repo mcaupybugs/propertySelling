@@ -10,7 +10,8 @@ class PropertyEdit extends React.Component {
     }
 
     onSubmit = formValues => {
-        this.props.editProperty(this.props.match.params.id);
+        console.log(formValues);
+        this.props.editProperty(this.props.match.params.id, formValues);
     }
 
     render() {
