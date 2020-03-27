@@ -13,6 +13,7 @@ class SellerCreate extends React.Component {
         return (
             <div>
                 <SellerForm onSubmit={this.onSubmit} />
+
             </div>
         )
     }

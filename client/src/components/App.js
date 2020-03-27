@@ -4,6 +4,7 @@ import history from '../history'
 import HomePage from '../pages/HomePage';
 import BuyerPage from '../pages/BuyerPage';
 import SellerPage from '../pages/SellerPage';
+import SellerEdit from './seller/SellerEdit';
 
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
                             <Route path="/" exact component={HomePage} />
                             <Route path="/buyer" exact component={BuyerPage} />
                             <Route path="/seller" exact component={SellerPage} />
+                            <Route path="/seller/edit/:id" exact component={SellerEdit} />
                         </Switch>
                     </div>
                 </Router>

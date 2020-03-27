@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import ImageUpload from '../ImageUpload';
 
 class SellerForm extends React.Component {
 
@@ -23,6 +24,7 @@ class SellerForm extends React.Component {
                 <Field name="State" component={this.renderInput} label="Enter the state of the house" />
                 <Field name="City" component={this.renderInput} label="Enter the city" />
                 <Field name="Price" component={this.renderInput} label="Enter the selling price" />
+                {/* <Field name="image" component={ImageUpload} label="Enter the image" /> */}
                 <button>Submit</button>
             </form>
         )

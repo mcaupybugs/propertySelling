@@ -22,6 +22,35 @@ app.post('/addProperty', (req, res) => {
         }
     })
 })
+app.get('/propertyList', (req, res) => {
+    console.log("running");
+    Property.find({}, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.status(404).send();
+        } else {
+            console.log(data);
+            res.status(200).send(data);
+        }
+    })
+})
+
+app.get('/property/:id', (req, res) => {
+    console.log("runninhg");
+    console.log(req.params.id);
+    Property.find({ _id: req.params.id }, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.status(404).send();
+        } else {
+            var to_send = {
+                property: data[0]
+            }
+            console.log(to_send);
+            res.status(200).send(to_send);
+        }
+    })
+})
 
 // listening route
 const port = process.env.PORT || 3001;
