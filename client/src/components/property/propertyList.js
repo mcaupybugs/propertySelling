@@ -20,7 +20,7 @@ class PropertyList extends React.Component {
     }
 
     renderList() {
-        console.log(this.props.property);
+        // console.log(this.props.property);
         return this.props.property.map(propert => {
             return (
                 <div key={propert.id}>

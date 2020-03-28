@@ -1,11 +1,13 @@
 import property from '../api/property';
 import history from '../history';
 
-export const signIn = (userId) => {
-    return {
+export const signIn = (values) => async (dispatch, getState) => {
+    console.log(values.userId)
+    const response = await property.post('/newUser', { values });
+    dispatch({
         type: 'SIGN_IN',
-        payload: userId
-    }
+        payload: values.userId
+    })
 }
 
 export const signOut = () => {
