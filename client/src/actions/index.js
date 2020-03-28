@@ -2,8 +2,8 @@ import property from '../api/property';
 import history from '../history';
 
 export const signIn = (values) => async (dispatch, getState) => {
-    console.log(values.userId)
-    const response = await property.post('/newUser', { values });
+    //console.log(values.userId)
+    await property.post('/newUser', { values });
     dispatch({
         type: 'SIGN_IN',
         payload: values.userId
@@ -41,7 +41,7 @@ export const editProperty = (id, formValues) => async dispatch => {
     const response = await property.patch(`/property/${id}`, formValues);
 
     dispatch({ type: 'EDIT_PROPERTY', payload: response.data });
-    history.push('/');
+    history.push('/buyer');
 }
 
 export const deleteProperty = (id) => async dispatch => {
@@ -49,5 +49,5 @@ export const deleteProperty = (id) => async dispatch => {
 
     dispatch({ type: 'DELETE_PROPERTY', payload: id });
 
-    history.push('/');
+    history.push('/buyer');
 }

@@ -11,9 +11,9 @@ class PropertyList extends React.Component {
     renderAdmin(propert) {
         if (propert.userId === this.props.currentUserId) {
             return (
-                <div>
-                    <Link to={`seller/edit/${propert._id}`}>Edit</Link>
-                    <Link to={`seller/delete/${propert._id}`}>Delete</Link>
+                <div className="extra content">
+                    <Link className="ui button primary" to={`seller/edit/${propert._id}`}>Edit</Link>
+                    <Link className="ui button negative" to={`seller/delete/${propert._id}`}>Delete</Link>
                 </div>
             )
         }
@@ -23,13 +23,16 @@ class PropertyList extends React.Component {
         // console.log(this.props.property);
         return this.props.property.map(propert => {
             return (
-                <div key={propert.id}>
-                    <div>
-                        <Link to={`/property/${propert.id}`}>
+                <div className="ui card" key={propert._id}>
+                    <div className="image">
+                        <img src="https://image.shutterstock.com/image-photo/house-model-key-on-table-600w-1563481423.jpg"></img>
+                    </div>
+                    <div className="content">
+                        <Link className="header" to={`/property/${propert._id}`}>
                             <li>City = {propert.City}</li>
                             <li>state = {propert.State}</li>
                         </Link>
-                        <div>Price = {propert.Price}</div>
+                        <div className="description">Price = {propert.Price}</div>
                         {this.renderAdmin(propert)}
                     </div>
                 </div>
@@ -39,9 +42,9 @@ class PropertyList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="ui container">
                 <h2>Property</h2>
-                <div>{this.renderList()}</div>
+                <div className="ui link cards">{this.renderList()}</div>
             </div>
         )
     }

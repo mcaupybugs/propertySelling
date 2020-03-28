@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
 import key from '../key/key';
 import { Nav } from 'react-bootstrap';
-import property from '../api/property';
 
 class GoogleAuth extends React.Component {
 

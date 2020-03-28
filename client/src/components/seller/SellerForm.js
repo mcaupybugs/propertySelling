@@ -1,14 +1,14 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import ImageUpload from '../ImageUpload';
+import './Seller.css'
 
 class SellerForm extends React.Component {
 
     renderInput = (formProps) => {
         return (
-            <div>
+            <div class="md-form mt-3">
                 <label>{formProps.label}</label>
-                <input {...formProps.input} />
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"{...formProps.input} />
             </div>
         )
     }
@@ -19,14 +19,18 @@ class SellerForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-                <Field name="HouseNo" component={this.renderInput} label="Enter the address of the house" />
-                <Field name="State" component={this.renderInput} label="Enter the state of the house" />
-                <Field name="City" component={this.renderInput} label="Enter the city" />
-                <Field name="Price" component={this.renderInput} label="Enter the selling price" />
-                {/* <Field name="image" component={ImageUpload} label="Enter the image" /> */}
-                <button>Submit</button>
-            </form>
+            <div class="me container card">
+                <h5 class="me card-header info-color white-text text-center py-4">
+                    <strong >Enter the details of Property</strong>
+                </h5>
+                <form class="ui form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+                    <Field name="HouseNo" component={this.renderInput} label="Enter the address of the house" />
+                    <Field name="State" component={this.renderInput} label="Enter the state of the house" />
+                    <Field name="City" component={this.renderInput} label="Enter the city" />
+                    <Field name="Price" component={this.renderInput} label="Enter the selling price" />
+                    <button class="me btn btn-success btn-lg">Submit</button>
+                </form>
+            </div>
         )
     }
 }
