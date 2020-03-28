@@ -6,7 +6,7 @@ class SellerPage extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header label="Buyer" link="/buyer" />
                 <SellerCreate />
             </div>
         )

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
 import key from '../key/key';
 import { Nav } from 'react-bootstrap';
+import property from '../api/property';
 
 class GoogleAuth extends React.Component {
 
@@ -21,6 +22,8 @@ class GoogleAuth extends React.Component {
     }
 
     onAuthChange = isSignedIn => {
+        this.googleUser = this.auth.currentUser.get(); // to get the user name 
+        console.log(this.googleUser.getBasicProfile().getName()); // display the user name
         if (isSignedIn) {
             this.props.signIn(this.auth.currentUser.get().getId());
         } else {

@@ -6,7 +6,7 @@ class BuyerPage extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header label="Seller" link="/seller" />
                 <PropertyList />
             </div>
         )
