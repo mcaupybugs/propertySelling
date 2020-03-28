@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage';
 import BuyerPage from '../pages/BuyerPage';
 import SellerPage from '../pages/SellerPage';
 import SellerEdit from './seller/SellerEdit';
+import SellerDelete from './seller/SellerDelete';
 
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
                             <Route path="/buyer" exact component={BuyerPage} />
                             <Route path="/seller" exact component={SellerPage} />
                             <Route path="/seller/edit/:id" exact component={SellerEdit} />
+                            <Route path="/seller/delete/:id" exact component={SellerDelete} />
                         </Switch>
                     </div>
                 </Router>

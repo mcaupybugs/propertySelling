@@ -9,7 +9,7 @@ export default (state = {}, action) => {
         case 'ADD_PROPERTY':
             return { ...state, [action.payload.id]: action.payload };
         case 'FETCH_PROPERTIES':
-            return { ...state, ..._.mapKeys(action.payload, 'id') };
+            return { ...state, ..._.mapKeys(action.payload, '_id') };
         case 'DELETE_PROPERTY':
             return _.omit(state, action.payload);
         default:

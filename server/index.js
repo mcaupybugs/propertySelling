@@ -32,6 +32,7 @@ app.get('/propertyList', (req, res) => {
         if (err) {
             res.status(404).send();
         } else {
+            console.log(data);
             res.status(200).send(data);
         }
     })
@@ -67,7 +68,15 @@ app.patch('/property/:id', (req, res) => {
 //delete a property
 
 app.delete('/property/:id', (req, res) => {
-    console.log(req, body);
+    Property.findByIdAndDelete(req.params.id, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.status(400).send();
+        } else {
+            console.log(data);
+            res.status(200).send();
+        }
+    })
 
 })
 
