@@ -12,6 +12,14 @@ class SellerForm extends React.Component {
             </div>
         )
     }
+    renderImageInput = (formProps) => {
+        return (
+            <div>
+                <label>{formProps.label}</label>
+                <input type="file" id="img" accept="image/*"></input>
+            </div>
+        )
+    }
 
     onSubmit = (formValues) => {
         this.props.onSubmit(formValues);
@@ -28,6 +36,7 @@ class SellerForm extends React.Component {
                     <Field name="State" component={this.renderInput} label="Enter the state of the house" />
                     <Field name="City" component={this.renderInput} label="Enter the city" />
                     <Field name="Price" component={this.renderInput} label="Enter the selling price" />
+                    <Field name="Image" component={this.renderImageInput} label="Enter the image" />
                     <button class="me btn btn-success btn-lg">Submit</button>
                 </form>
             </div>
