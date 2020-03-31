@@ -5,8 +5,8 @@ import SellerForm from './SellerForm';
 
 class SellerCreate extends React.Component {
 
-    onSubmit = (formValues) => {
-        this.props.addProperty(formValues);
+    onSubmit = (formValues, image) => {
+        this.props.addProperty(formValues, image);
     }
 
     render() {

@@ -3,6 +3,12 @@ import { Field, reduxForm } from 'redux-form';
 import './Seller.css'
 
 class SellerForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            Image: ''
+        }
+    }
 
     renderInput = (formProps) => {
         return (
@@ -16,13 +22,17 @@ class SellerForm extends React.Component {
         return (
             <div>
                 <label>{formProps.label}</label>
-                <input type="file" id="img" accept="image/*"></input>
+                <input type="file" id="img" accept="image/*" onChange={(event) => {
+                    // console.log(event.target.files[0]);
+                    this.setState({ Image: event.target.files[0] });
+                }}></input>
             </div>
         )
     }
 
     onSubmit = (formValues) => {
-        this.props.onSubmit(formValues);
+        //console.log(this.state.Image);
+        this.props.onSubmit(formValues, this.state.Image);
     }
 
     render() {

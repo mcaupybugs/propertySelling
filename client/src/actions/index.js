@@ -16,7 +16,10 @@ export const signOut = () => {
     }
 }
 
-export const addProperty = (formValues) => async (dispatch, getState) => {
+export const addProperty = (formValues, image) => async (dispatch, getState) => {
+    //console.log(image);
+    formValues.image = image;
+    console.log(formValues);
     const { userId } = getState().auth;
     const response = await property.post('/addProperty', { ...formValues, userId });
     dispatch({ type: 'ADD_PROPERTY', payload: response.data });
