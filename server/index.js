@@ -5,6 +5,19 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var Property = require('./models/property');
 var User = require('./models/user');
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/' })
+
+// var storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, 'upload');
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname);
+//     }
+// })
+
+// var upload = multer({ storage: storage });
 
 mongoose.connect("mongodb://localhost/property");
 app.use(cors());
@@ -13,7 +26,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //create a property 
-app.post('/addProperty', (req, res) => {
+app.post('/addProperty', upload.single('image'), (req, res) => {
+    //res.send(req.file);
+    // console.log(req.file.path);
+    req.body.image = req.file.path;
+    // console.log(req.body);
+
+    //res.send(req.file);
     Property.create(req.body, (err, newEntry) => {
         if (err) {
             res.status(404).send({ response: false });

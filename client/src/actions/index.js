@@ -18,10 +18,17 @@ export const signOut = () => {
 
 export const addProperty = (formValues, image) => async (dispatch, getState) => {
     //console.log(image);
-    formValues.image = image;
-    console.log(formValues);
     const { userId } = getState().auth;
-    const response = await property.post('/addProperty', { ...formValues, userId });
+    let formdata = new FormData();
+    formdata.append('HouseNo', formValues.HouseNo);
+    formdata.append('State', formValues.State);
+    formdata.append('City', formValues.City);
+    formdata.append('Price', formValues.Price);
+    formdata.append('image', image);
+    formdata.append('userId', userId)
+    // formValues[image] = image;
+    console.log(formdata);
+    const response = await property.post('/addProperty', formdata);
     dispatch({ type: 'ADD_PROPERTY', payload: response.data });
     history.push('/');
 }
