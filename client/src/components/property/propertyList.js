@@ -18,6 +18,11 @@ class PropertyList extends React.Component {
             )
         }
     }
+    buyButton(propert) {
+        return (
+            <Link class="ui button">Buy</Link>
+        )
+    }
 
     renderList() {
         // console.log(this.props.property);
@@ -27,17 +32,39 @@ class PropertyList extends React.Component {
             var me = require(`../../../../server/${propert.image}`);
             //console.log(string);
             return (
-                <div className="ui card" key={propert._id}>
+                // <div className="ui card" key={propert._id}>
+                //     <div className="image">
+                //         <img src={me}></img>
+                //     </div>
+                //     <div className="content">
+                //         <Link className="header" to={`/property/${propert._id}`}>
+                //             {propert.City}
+                //             {propert.State}
+                //         </Link>
+                //         <div className="description"><h4>Price = {propert.Price}</h4></div>
+                //         {this.renderAdmin(propert)}{this.buyButton(propert)}
+                //     </div>
+                // </div >
+                <div className="card">
                     <div className="image">
                         <img src={me}></img>
                     </div>
-                    <div className="content">
-                        <Link className="header" to={`/property/${propert._id}`}>
-                            <li>City = {propert.City}</li>
-                            <li>state = {propert.State}</li>
-                        </Link>
-                        <div className="description">Price = {propert.Price}</div>
-                        {this.renderAdmin(propert)}
+                    <div class="content">
+                        <div class="header">{propert.City}</div>
+                        <div class="meta">
+                            <a>{propert.State}</a>
+                        </div>
+                        <div class="description">
+                            $ {propert.Price}
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <span class="right floated">
+                            {this.buyButton(propert)}
+                        </span>
+                        <span>
+                            {this.renderAdmin(propert)}
+                        </span>
                     </div>
                 </div>
 
@@ -48,7 +75,7 @@ class PropertyList extends React.Component {
     render() {
         return (
             <div className="ui container">
-                <h2>Property</h2>
+
                 <div className="ui link cards">{this.renderList()}</div>
             </div>
         )

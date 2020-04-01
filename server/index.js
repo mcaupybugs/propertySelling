@@ -7,6 +7,7 @@ var Property = require('./models/property');
 var User = require('./models/user');
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' })
+var fs = require('fs');
 
 // var storage = multer.diskStorage({
 //     destination: function (req, file, cb) {
@@ -95,6 +96,8 @@ app.delete('/property/:id', (req, res) => {
         } else {
             //console.log(data);
             res.status(200).send();
+            console.log(data);
+            fs.unlinkSync(data.image);
         }
     })
 
