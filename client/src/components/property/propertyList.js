@@ -22,24 +22,25 @@ class PropertyList extends React.Component {
     renderList() {
         // console.log(this.props.property);
         return this.props.property.map(propert => {
-            var string = "../../../server/" + propert.image;
+            //console.log(propert.image);
+            var string = "../../../../server/" + propert.image;
+            var me = require(`../../../../server/${propert.image}`);
+            //console.log(string);
             return (
-                <div>
-                    <img src={string}></img>
-                    <div className="ui card" key={propert._id}>
-                        <div className="image">
-                            <img src={string}></img>
-                        </div>
-                        <div className="content">
-                            <Link className="header" to={`/property/${propert._id}`}>
-                                <li>City = {propert.City}</li>
-                                <li>state = {propert.State}</li>
-                            </Link>
-                            <div className="description">Price = {propert.Price}</div>
-                            {this.renderAdmin(propert)}
-                        </div>
+                <div className="ui card" key={propert._id}>
+                    <div className="image">
+                        <img src={me}></img>
+                    </div>
+                    <div className="content">
+                        <Link className="header" to={`/property/${propert._id}`}>
+                            <li>City = {propert.City}</li>
+                            <li>state = {propert.State}</li>
+                        </Link>
+                        <div className="description">Price = {propert.Price}</div>
+                        {this.renderAdmin(propert)}
                     </div>
                 </div>
+
             )
         })
     }
